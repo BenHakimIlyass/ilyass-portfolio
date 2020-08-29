@@ -40,7 +40,7 @@ const shadows = {
     box-shadow: 0px 0px 16px rgba(196, 45, 120, 0.24);
   `,
   gfree: css`
-    box-shadow: 0px 0px 16px rgba(16, 42, 67, 0.24);
+    box-shadow: 0px 0px 16px rgba(196, 45, 120, 0.24);
   `,
 };
 

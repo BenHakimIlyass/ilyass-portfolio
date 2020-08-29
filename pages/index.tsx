@@ -18,13 +18,16 @@ import {
   Contact,
 } from "../sections";
 
+const favicons = ["blue", "pink", "gray"];
 export default function App() {
   const { scroll } = useScroll({});
-
+  const [favicon, set] = React.useState<number>(0);
+  React.useEffect(() => set(Math.floor(Math.random() * 3)), []);
   return (
     <>
       <Head>
         <title>Ilyass Ben Hakim - Protfolio</title>
+        <link rel="icon" href={`/Favicons/${favicons[favicon]}.ico`} />
       </Head>
       <Reset />
       <Main
