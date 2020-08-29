@@ -3,9 +3,10 @@ import * as React from "react";
 import styled from "styled-components";
 import { createGlobalStyle } from "styled-components";
 import { motion } from "framer-motion";
+import { AnimateSharedLayout } from "framer-motion";
 
 import ScrollRenderer from "../scrollRenderer";
-import { Stack, P, H1, H3, Button, Center } from "../components";
+import { Stack, P, H1, H3, Target, Center } from "../components";
 import { useScroll } from "../hooks";
 import { makeProps, makeMax, makeMin } from "../helpers";
 import {
@@ -19,10 +20,19 @@ import {
 } from "../sections";
 
 const favicons = ["blue", "pink", "gray"];
+
 export default function App() {
-  const { scroll } = useScroll({});
+  const { scroll, isScrolling } = useScroll({});
   const [favicon, set] = React.useState<number>(0);
-  React.useEffect(() => set(Math.floor(Math.random() * 3)), []);
+  const [toggle, animate] = React.useState<boolean>(true);
+
+  React.useEffect(() => {
+    set(Math.floor(Math.random() * 3));
+    animate(true);
+    let timeout = setTimeout(() => animate(false), 1300);
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
     <>
       <Head>
@@ -30,26 +40,48 @@ export default function App() {
         <link rel="icon" href={`/Favicons/${favicons[favicon]}.ico`} />
       </Head>
       <Reset />
+      {/* gemography logo */}
+      <AnimateSharedLayout>
+        {toggle ? (
+          <Target
+            layoutId="target"
+            style={{
+              right: `calc(50% - 90px)`,
+              top: `calc(50vh - 23px)`,
+            }}
+          />
+        ) : (
+          <Target
+            layoutId="target"
+            style={{ right: 20, bottom: 20 }}
+            animate={{
+              boxShadow: `0px 0px 16px rgba(97, 79, 231, 0.43)`,
+            }}
+          />
+        )}
+      </AnimateSharedLayout>
       <Main
+        transition={{ delay: 0.1 }}
         animate={{
-          backgroundColor:
-            scroll >= makeMax(7.5)
-              ? "#fff"
-              : scroll >= makeMax(6.5)
-              ? "#262626"
-              : scroll >= makeMax(2.5)
-              ? "#fff"
-              : scroll >= makeMax(0)
-              ? "#99EEEE"
-              : scroll >= 0
-              ? "#f96754"
-              : "#000",
+          backgroundColor: toggle
+            ? "#fff"
+            : scroll >= makeMax(7.5)
+            ? "#fff"
+            : scroll >= makeMax(6.5)
+            ? "#262626"
+            : scroll >= makeMax(2.5)
+            ? "#fff"
+            : scroll >= makeMax(0)
+            ? "#99EEEE"
+            : scroll >= 0
+            ? "#f96754"
+            : "#000",
         }}
       >
         {/* first section */}
         <ScrollRenderer {...makeProps(0)}>
           <Stack space={0.8}>
-            <P>Hey there! my name is</P>
+            <P>Hey Gemography! my name is</P>
             <H1>Ilyass Ben Hakim</H1>
           </Stack>
         </ScrollRenderer>
@@ -94,7 +126,7 @@ export default function App() {
         {/* animations section */}
         <ScrollRenderer {...makeProps(5)}>
           <Stack space={1} top={-3}>
-            <P style={{ color: "#1F374E" }}>Examples of</P>
+            <P style={{ color: "#1F374E" }}>Here are some examples of</P>
             <H1 gradient="90deg, #1F374E 0%, #1F374E 0.01%, #E196BB 100%">
               Web animations that i made
             </H1>
