@@ -5,10 +5,18 @@ import { createGlobalStyle } from "styled-components";
 import { motion } from "framer-motion";
 import { AnimateSharedLayout } from "framer-motion";
 
-import ScrollRenderer from "../scrollRenderer";
-import { Stack, P, H1, H3, Target, Center } from "../components";
 import { useScroll } from "../hooks";
 import { makeProps, makeMax, makeMin } from "../helpers";
+import {
+  ScrollRenderer,
+  Stack,
+  P,
+  H1,
+  H3,
+  Target,
+  Center,
+  Arrow,
+} from "../components";
 import {
   Skills,
   Gfree,
@@ -20,9 +28,10 @@ import {
 } from "../sections";
 
 const favicons = ["blue", "pink", "gray"];
-
+// @TODO
+// Drop shadow for clock svg paths
 export default function App() {
-  const { scroll, isScrolling } = useScroll({});
+  const { scroll } = useScroll({});
   const [favicon, set] = React.useState<number>(0);
   const [toggle, animate] = React.useState<boolean>(true);
 
@@ -55,7 +64,7 @@ export default function App() {
             layoutId="target"
             style={{ right: 20, bottom: 20 }}
             animate={{
-              boxShadow: `0px 0px 16px rgba(97, 79, 231, 0.43)`,
+              boxShadow: `0px 0px 16px rgba(97, 79, 231, 0.30)`,
             }}
           />
         )}
@@ -68,13 +77,13 @@ export default function App() {
             : scroll >= makeMax(7.5)
             ? "#fff"
             : scroll >= makeMax(6.5)
-            ? "#262626"
+            ? "#000"
             : scroll >= makeMax(2.5)
             ? "#fff"
             : scroll >= makeMax(0)
             ? "#99EEEE"
             : scroll >= 0
-            ? "#f96754"
+            ? "#614FE7"
             : "#000",
         }}
       >
@@ -126,10 +135,15 @@ export default function App() {
         {/* animations section */}
         <ScrollRenderer {...makeProps(5)}>
           <Stack space={1} top={-3}>
-            <P style={{ color: "#1F374E" }}>Here are some examples of</P>
+            <P style={{ color: "#1F374E" }}>
+              Below you will find some examples of
+            </P>
             <H1 gradient="90deg, #1F374E 0%, #1F374E 0.01%, #E196BB 100%">
               Web animations that i made
             </H1>
+            <Center>
+              <Arrow />
+            </Center>
           </Stack>
         </ScrollRenderer>
 
@@ -159,7 +173,7 @@ export default function App() {
         </ScrollRenderer>
 
         {/* contact */}
-        <ScrollRenderer {...makeProps(10.4, 11)}>
+        <ScrollRenderer {...makeProps(10.4)} final>
           <Contact />
         </ScrollRenderer>
       </Main>
@@ -177,7 +191,6 @@ body {
   margin: 0;
   position: relative;
   overflow-x: hidden;
-  height:7000px;
   font-family: Muli;
 }
 
@@ -206,6 +219,4 @@ h3 {
   src: url(Muli/Muli-SemiBold.ttf);
   font-weight: 500;
 }
-
-
 `;

@@ -29,7 +29,7 @@ const Skills = ({ style }: Props) => {
         ...style,
         backgroundColor: "transparent",
         textAlign: "center",
-        position: "relative"
+        position: "relative",
       }}
       onMouseEnter={() => toggle(true)}
       onMouseLeave={() => toggle(false)}
@@ -55,11 +55,10 @@ const Skills = ({ style }: Props) => {
       <AnimatePresence exitBeforeEnter>
         {state && (
           <Cursor
-            initial={{ opacity: 0, x: 0, y: 0 }}
             animate={{
               opacity: 1,
               x: x - 20,
-              top: y - window.innerHeight * 0.4
+              top: y - window.innerHeight * 0.4,
             }}
             exit={{ opacity: 0 }}
             transition={{ type: "spring" }}

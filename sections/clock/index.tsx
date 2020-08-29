@@ -7,7 +7,7 @@ const getTime = () => {
   return {
     hours: Math.round(date.getHours()),
     minutes: Math.round(date.getMinutes()),
-    seconds: date.getSeconds()
+    seconds: date.getSeconds(),
   };
 };
 const parseTime = (value: number, indicator: number) => {
@@ -63,6 +63,10 @@ const Container = styled.div`
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
+  .dropshadow {
+    -webkit-filter: drop-shadow(3px 3px 2px rgba(255, 255, 255, 0.7));
+    filter: drop-shadow(3px 3px 2px rgba(255, 255, 255, 0.7));
+  }
 `;
 const Circle = styled.div`
   width: 14px;
