@@ -28,16 +28,11 @@ import {
   Contact,
 } from "../sections";
 
-const favicons = ["blue", "pink", "gray"];
-// @TODO
-// Drop shadow for clock svg paths
 export default function App() {
   const { scroll } = useScroll({});
-  const [favicon, set] = React.useState<number>(0);
   const [toggle, animate] = React.useState<boolean>(true);
 
   React.useEffect(() => {
-    set(Math.floor(Math.random() * 3));
     animate(true);
     let timeout = setTimeout(() => animate(false), 1300);
     return () => clearTimeout(timeout);
@@ -47,7 +42,7 @@ export default function App() {
     <>
       <Head>
         <title>Ilyass Ben Hakim - Protfolio</title>
-        <link rel="icon" href={`/Favicons/${favicons[favicon]}.ico`} />
+        <link rel="icon" href="/Favicons/gemography.ico" />
       </Head>
       <Reset />
       {/* gemography logo */}
