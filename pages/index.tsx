@@ -42,7 +42,7 @@ export default function App() {
     <>
       <Head>
         <title>Ilyass Ben Hakim - Protfolio</title>
-        <link rel="icon" href="/Favicons/gemography.ico" />
+        <link rel="icon" href="/Favicon/gemography.ico" />
       </Head>
       <Reset />
       {/* gemography logo */}
