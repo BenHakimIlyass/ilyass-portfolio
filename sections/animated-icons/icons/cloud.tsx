@@ -26,10 +26,10 @@ const Cloud = () => {
         fill="#FF7D18"
       />
       <motion.path
-        initial={{ fill: "#fff2ec" }}
-        animate={{ fill: isHovered ? "#dadada" : "#fff2ec" }}
+        initial={{ fill: "#FFD2BD" }}
+        animate={{ fill: isHovered ? "#dadada" : "#FFD2BD" }}
         d="M5 39.5C5 51.9264 15.0736 62 27.5 62H51C51 62 64 61.5 64 49C63.0174 34.9705 49.7294 36 49.7294 36C48.0482 25.2358 38.7359 17 27.5 17C15.0736 17 5 27.0736 5 39.5Z"
-        fill="#FFF2EC"
+        fill="#FFD2BD"
         fillOpacity="0.6"
       />
       <path

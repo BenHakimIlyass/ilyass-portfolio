@@ -75,16 +75,18 @@ export default function App() {
         animate={{
           backgroundColor: toggle
             ? "#fff"
-            : scroll >= makeMax(7.5)
+            : scroll >= makeMax(8.3)
             ? "#fff"
-            : scroll >= makeMax(6.5)
+            : scroll >= makeMax(7.3)
             ? "#000"
-            : scroll >= makeMax(2.5)
+            : scroll >= makeMax(2.3)
             ? "#fff"
+            : scroll >= makeMax(1)
+            ? "#4D3BD8"
             : scroll >= makeMax(0)
-            ? "#99EEEE"
-            : scroll >= 0
             ? "#614FE7"
+            : scroll >= 0
+            ? "#8E82EE"
             : "#000",
         }}
       >
@@ -139,7 +141,7 @@ export default function App() {
             <P style={{ color: "#1F374E" }}>
               Below you will find some examples of
             </P>
-            <H1 gradient="90deg, #1F374E 0%, #1F374E 0.01%, #E196BB 100%">
+            <H1 gradient="90deg, #1F374E 0%, #1F374E 0.01%, #614FE7 100%">
               Web animations that i made
             </H1>
             <Center>
@@ -150,8 +152,10 @@ export default function App() {
 
         {/* animated icons section */}
         <ScrollRenderer {...makeProps(6)}>
-          <Stack space={0} top={-6}>
+          <Stack space={3} top={-6}>
+            <P style={{ color: "#334E68" }}>Hover on the icons to see magic</P>
             <AnimatedIcons />
+            <P style={{ color: "#829AB1", fontSize: 12 }}>Icons made by me</P>
           </Stack>
         </ScrollRenderer>
 
@@ -165,7 +169,7 @@ export default function App() {
         {/* clock section */}
         <ScrollRenderer {...makeProps(8)}>
           <Stack space={4} top={-4}>
-            <P>Digital clock logic, using react-spring and svg</P>
+            <P>Digital clock logic, using svg</P>
             <Clock />
           </Stack>
         </ScrollRenderer>

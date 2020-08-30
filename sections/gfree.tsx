@@ -5,7 +5,9 @@ const Gfree = () => {
     <Stack space={0.8} top={-4}>
       <P style={{ color: "#102A43" }}>I have worked on</P>
       <Stack space={2}>
-        <H1 style={{ color: "#3EBD93" }}>Gfree project</H1>
+        <H1 style={{ color: "#3EBD93" }}>
+          Gfree <span style={{ color: "#C42D78" }}>project</span>
+        </H1>
         <P style={{ color: "#829AB1" }}>
           A community made for everything gluten free related.
         </P>

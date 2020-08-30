@@ -8,12 +8,14 @@ type TSkill = {
   d: string;
   key: number;
 };
-const Skill = ({ d, key, ...rest }: TSkill) => (
-  <>
-    <rect {...rest} height="37" rx="4" stroke="#C42D78" strokeWidth="2" />
-    <path fill="#C42D78" d={d} />
-  </>
-);
+const Skill = ({ d, key, ...rest }: TSkill) => {
+  return (
+    <>
+      <rect {...rest} height="37" rx="4" stroke="#C42D78" strokeWidth="2" />
+      <path fill="#C42D78" d={d} />
+    </>
+  );
+};
 
 type Props = {
   style: React.CSSProperties;
@@ -22,7 +24,6 @@ type Props = {
 const Skills = ({ style }: Props) => {
   const [state, toggle] = React.useState(false);
   const { x, y } = useMousePosition();
-
   return (
     <div
       style={{
@@ -40,13 +41,7 @@ const Skills = ({ style }: Props) => {
         style={{ zIndex: 99 }}
         transition={{ delay: 0.4 }}
       >
-        <svg
-          width="444"
-          height="210"
-          viewBox="0 0 444 210"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
+        <svg width="444" height="210" viewBox="0 0 444 210" fill="none">
           {data.map((item, key) => (
             <Skill {...item} key={key} />
           ))}
