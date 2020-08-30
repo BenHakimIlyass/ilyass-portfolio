@@ -20,6 +20,7 @@ import {
 import {
   Skills,
   Gfree,
+  AnimatedIcons,
   Jordans,
   Clock,
   Colorful,
@@ -147,15 +148,22 @@ export default function App() {
           </Stack>
         </ScrollRenderer>
 
-        {/* jordans section */}
+        {/* animated icons section */}
         <ScrollRenderer {...makeProps(6)}>
+          <Stack space={0} top={-6}>
+            <AnimatedIcons />
+          </Stack>
+        </ScrollRenderer>
+
+        {/* jordans section */}
+        <ScrollRenderer {...makeProps(7)}>
           <Stack space={0} top={-22}>
             <Jordans />
           </Stack>
         </ScrollRenderer>
 
         {/* clock section */}
-        <ScrollRenderer {...makeProps(7)}>
+        <ScrollRenderer {...makeProps(8)}>
           <Stack space={4} top={-4}>
             <P>Digital clock logic, using react-spring and svg</P>
             <Clock />
@@ -163,17 +171,17 @@ export default function App() {
         </ScrollRenderer>
 
         {/* colorful design section */}
-        <ScrollRenderer {...makeProps(7.8, 8.8)} native>
-          <Colorful yPosition={scroll} min={makeMin(6.8)} />
+        <ScrollRenderer {...makeProps(8.8, 9.8)} native>
+          <Colorful yPosition={scroll} min={makeMin(7.8)} />
         </ScrollRenderer>
 
         {/* colorless design section */}
-        <ScrollRenderer {...makeProps(8.8, 9.8)} native>
-          <Colorless yPosition={scroll} min={makeMin(7.6)} />
+        <ScrollRenderer {...makeProps(9.8, 10.8)} native>
+          <Colorless yPosition={scroll} min={makeMin(8.6)} />
         </ScrollRenderer>
 
         {/* contact */}
-        <ScrollRenderer {...makeProps(10.4)} final>
+        <ScrollRenderer {...makeProps(11.4)} final>
           <Contact />
         </ScrollRenderer>
       </Main>
