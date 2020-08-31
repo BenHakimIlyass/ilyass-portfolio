@@ -6,7 +6,12 @@ import { motion } from "framer-motion";
 import { AnimateSharedLayout } from "framer-motion";
 
 import { useScroll } from "../hooks";
-import { makeProps, makeMax, makeMin } from "../helpers";
+import {
+  makeProps,
+  handleBackgroundColor,
+  handleIndicatorColor,
+  makeMin,
+} from "../helpers";
 import {
   ScrollRenderer,
   Stack,
@@ -16,6 +21,7 @@ import {
   Target,
   Center,
   Arrow,
+  ScrollIndicator,
 } from "../components";
 import {
   Skills,
@@ -65,25 +71,19 @@ export default function App() {
           />
         )}
       </AnimateSharedLayout>
+
+      {/* Scroll indicator */}
+      <ScrollIndicator
+        initial={{ stroke: "#fff" }}
+        animate={{
+          stroke: handleIndicatorColor(toggle, scroll),
+        }}
+      />
+
+      {/* All sections */}
       <Main
         transition={{ delay: 0.1 }}
-        animate={{
-          backgroundColor: toggle
-            ? "#fff"
-            : scroll >= makeMax(8.3)
-            ? "#fff"
-            : scroll >= makeMax(7.3)
-            ? "#000"
-            : scroll >= makeMax(2.3)
-            ? "#fff"
-            : scroll >= makeMax(1)
-            ? "#4D3BD8"
-            : scroll >= makeMax(0)
-            ? "#614FE7"
-            : scroll >= 0
-            ? "#8E82EE"
-            : "#000",
-        }}
+        animate={{ backgroundColor: handleBackgroundColor(toggle, scroll) }}
       >
         {/* first section */}
         <ScrollRenderer {...makeProps(0)}>
@@ -127,7 +127,9 @@ export default function App() {
 
         {/* gfree section */}
         <ScrollRenderer {...makeProps(4)}>
-          <Gfree />
+          <Stack top={-2}>
+            <Gfree />
+          </Stack>
         </ScrollRenderer>
 
         {/* animations section */}
@@ -136,9 +138,7 @@ export default function App() {
             <P style={{ color: "#1F374E" }}>
               Below you will find some examples of
             </P>
-            <H1 gradient="90deg, #1F374E 0%, #1F374E 0.01%, #614FE7 100%">
-              Web animations that i made
-            </H1>
+            <H1 style={{ color: "#829AB1" }}>Web animations that i made</H1>
             <Center>
               <Arrow />
             </Center>
@@ -164,7 +164,7 @@ export default function App() {
         {/* clock section */}
         <ScrollRenderer {...makeProps(8)}>
           <Stack space={4} top={-4}>
-            <P>Digital clock logic, using svg</P>
+            <P>Digital clock logic</P>
             <Clock />
           </Stack>
         </ScrollRenderer>
@@ -191,7 +191,7 @@ export default function App() {
 const Main = styled(motion.div)`
   font-family: Muli;
   height: 16000px;
-  background-color: #f96754;
+  background-color: #fff;
 `;
 const Reset = createGlobalStyle`
 body {

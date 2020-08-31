@@ -6,3 +6,4 @@ export * from "./typography";
 export * from "./views";
 export { default as Target } from "./target";
 export { default as ScrollRenderer } from "./scrollRenderer";
+export { default as ScrollIndicator } from "./scrollIndicator";

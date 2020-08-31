@@ -7,9 +7,9 @@ const AnimatedIcons = () => {
     <Main>
       <Folder />
       <Cloud />
-      <Camera />
-      <Bell />
       <Wallet />
+      <Bell />
+      <Camera />
     </Main>
   );
 };
