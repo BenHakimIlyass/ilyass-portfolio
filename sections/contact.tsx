@@ -63,7 +63,7 @@ const Contact = () => {
           >
             Here
           </a>{" "}
-          you will find the zyro repository
+          you will find the Gemography repository
         </P>
       </Stack>
     </Stack>

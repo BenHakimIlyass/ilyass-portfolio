@@ -47,7 +47,7 @@ export default function App() {
   return (
     <>
       <Head>
-        <title>Ilyass Ben Hakim - Protfolio</title>
+        <title>Ilyass Ben Hakim</title>
         <link rel="icon" href="/Favicon/gemography.ico" />
       </Head>
       <Reset />
