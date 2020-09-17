@@ -58,7 +58,7 @@ const Contact = () => {
         <P style={{ color: "#829AB1", fontSize: "1.1rem", fontWeight: 300 }}>
           <a
             style={{ color: "#829AB1" }}
-            href="https://github.com/BenHakimIlyass/zyro"
+            href="https://github.com/BenHakimIlyass/ilyass-portfolio"
             target="_blanc"
           >
             Here
