@@ -20,7 +20,11 @@ const Contact = () => {
             <>GitHub</>
           </Button>
         </a>
-        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+        <a
+          href="/Ilyass_Ben_Hakim_-_Frontend_developer.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Button icon="resume">
             <>Resume</>
           </Button>
