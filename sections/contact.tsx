@@ -55,6 +55,16 @@ const Contact = () => {
             +212 6 52 30 59 58
           </P>
         </a>
+        <P style={{ color: "#829AB1", fontSize: "1.1rem", fontWeight: 300 }}>
+          <a
+            style={{ color: "#829AB1" }}
+            href="https://github.com/BenHakimIlyass/zyro"
+            target="_blanc"
+          >
+            Here
+          </a>{" "}
+          you will find the zyro repository
+        </P>
       </Stack>
     </Stack>
   );
